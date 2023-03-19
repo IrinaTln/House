@@ -8,5 +8,6 @@ namespace MyHermitage.Core.ServiceInterface
 {
     public interface IApplicationServices
     {
+
     }
 }

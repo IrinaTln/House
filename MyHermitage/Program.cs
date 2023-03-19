@@ -1,7 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using MyHermitage.ApplicationServices.Services;
+using MyHermitage.Core.ServiceInterface;
+using MyHermitage.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<MyHermitageDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IHouseServices, HouseServices>();
 
 var app = builder.Build();
 

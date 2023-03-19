@@ -21,4 +21,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyHermitage.ApplicationServices\MyHermitage.ApplicationServices.csproj" />
+    <ProjectReference Include="..\MyHermitage.Data\MyHermitage.Data.csproj" />
+  </ItemGroup>
+
 </Project>

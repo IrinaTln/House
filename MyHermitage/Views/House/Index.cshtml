@@ -1,5 +1,51 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<MyHermitage.Models.House.HouseListViewModel>
+
 @{
+    int rowNumber = 0;
 }
+
+<div class="h1">
+    Houses
+</div>
+
+<div>
+    <a asp-action="create" asp-controller="house" type="submit" class="btn btn-primary">Create</a>
+</div>
+
+<form method="post" class="m-1">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Nr</th>
+                <th scope="col">Clien name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Architecture</th>
+                <th scope="col">Size</th>
+                <th scope="col">Number of storeys</th>
+                <th scope="col">Date of bilding permition</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var house in Model)
+            {
+
+                rowNumber += 1;
+                <tr>
+                    <th scope="row">@rowNumber</th>
+                    <td class="">@house.ClientName</td>
+                    <td class="">@house.Address</td>
+                    <td class="">@house.Architecture</td>
+                    <td class="">@house.Size</td>
+                    <td class="">@house.NumberOfStoreys</td>
+                    <td class="">@house.DateOfBildingPermition</td>
+                    <td class="">
+                        <a asp-action="update" asp-controller="house" asp-route-id="@house.Id" class="btn btn-primary">Update</a>
+                        <a asp-action="delete" asp-controller="house" asp-route-id="@house.Id" type="submit" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</form>

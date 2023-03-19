@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MyHermitage.Core.Domain;
+using MyHermitage.Core.Dto;
+
 
 namespace MyHermitage.Core.ServiceInterface
 {
-    public interface IHouseServices
+    public interface IHouseServices : IApplicationServices
     {
+        Task<House> Create(HouseDto dto);
+        Task<House> GetAsync(Guid Id);
+        Task<House> Update(HouseDto dto);
+        Task<House> Delete(Guid dto);
     }
 }
