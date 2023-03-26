@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace MyHermitage.Core.Domain
 {
     public class House
     {
         [Key]
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
         public string ClientName { get; set; }
         public string Address { get; set; }
         public string Architecture { get; set; }
